@@ -33,8 +33,6 @@
 		4AD587E218205B5800D539D6 /* NSDictionary+MDMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AD587D718205B5800D539D6 /* NSDictionary+MDMAdditions.m */; };
 		4AD587E318205B5800D539D6 /* ufo.json in Resources */ = {isa = PBXBuildFile; fileRef = 4AD587D818205B5800D539D6 /* ufo.json */; };
 		4AD587E418205B5800D539D6 /* ufo.json in Resources */ = {isa = PBXBuildFile; fileRef = 4AD587D818205B5800D539D6 /* ufo.json */; };
-		4AD587E918205B5800D539D6 /* UFOSighting.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AD587DE18205B5800D539D6 /* UFOSighting.m */; };
-		4AD587EA18205B5800D539D6 /* UFOSighting.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AD587DE18205B5800D539D6 /* UFOSighting.m */; };
 		4AD587F518205C2500D539D6 /* UFO.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4AD587F318205C2500D539D6 /* UFO.xcdatamodeld */; };
 		4AD587F618205C2500D539D6 /* UFO.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4AD587F318205C2500D539D6 /* UFO.xcdatamodeld */; };
 		4AD5880118205D6100D539D6 /* MDMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AD587FA18205D6100D539D6 /* MDMAppDelegate.m */; };
@@ -49,6 +47,7 @@
 		4AD5880F18207C5700D539D6 /* UFO_POPULATED.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 4AD5880D18207C5700D539D6 /* UFO_POPULATED.sqlite */; };
 		4AD5881218207E7B00D539D6 /* MDMUFOShapesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AD5881118207E7B00D539D6 /* MDMUFOShapesViewController.m */; };
 		4AD5881318207E7B00D539D6 /* MDMUFOShapesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AD5881118207E7B00D539D6 /* MDMUFOShapesViewController.m */; };
+		4AE85403194671990006F07A /* UFOSighting.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE85402194671990006F07A /* UFOSighting.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,8 +88,6 @@
 		4AD587D618205B5800D539D6 /* NSDictionary+MDMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+MDMAdditions.h"; sourceTree = "<group>"; };
 		4AD587D718205B5800D539D6 /* NSDictionary+MDMAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+MDMAdditions.m"; sourceTree = "<group>"; };
 		4AD587D818205B5800D539D6 /* ufo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ufo.json; sourceTree = "<group>"; };
-		4AD587DD18205B5800D539D6 /* UFOSighting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UFOSighting.h; sourceTree = "<group>"; };
-		4AD587DE18205B5800D539D6 /* UFOSighting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UFOSighting.m; sourceTree = "<group>"; };
 		4AD587F418205C2500D539D6 /* UFO.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UFO.xcdatamodel; sourceTree = "<group>"; };
 		4AD587F918205D6100D539D6 /* MDMAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDMAppDelegate.h; sourceTree = "<group>"; };
 		4AD587FA18205D6100D539D6 /* MDMAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDMAppDelegate.m; sourceTree = "<group>"; };
@@ -103,6 +100,8 @@
 		4AD5880D18207C5700D539D6 /* UFO_POPULATED.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = UFO_POPULATED.sqlite; sourceTree = "<group>"; };
 		4AD5881018207E7B00D539D6 /* MDMUFOShapesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDMUFOShapesViewController.h; sourceTree = "<group>"; };
 		4AD5881118207E7B00D539D6 /* MDMUFOShapesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDMUFOShapesViewController.m; sourceTree = "<group>"; };
+		4AE85401194671990006F07A /* UFOSighting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UFOSighting.h; sourceTree = "<group>"; };
+		4AE85402194671990006F07A /* UFOSighting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UFOSighting.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,12 +206,12 @@
 				4AD587D818205B5800D539D6 /* ufo.json */,
 				4AD5880D18207C5700D539D6 /* UFO_POPULATED.sqlite */,
 				4AD587F318205C2500D539D6 /* UFO.xcdatamodeld */,
+				4AE85401194671990006F07A /* UFOSighting.h */,
+				4AE85402194671990006F07A /* UFOSighting.m */,
 				4AD587D418205B5800D539D6 /* MDMPersistenceStack.h */,
 				4AD587D518205B5800D539D6 /* MDMPersistenceStack.m */,
 				4AD587D618205B5800D539D6 /* NSDictionary+MDMAdditions.h */,
 				4AD587D718205B5800D539D6 /* NSDictionary+MDMAdditions.m */,
-				4AD587DD18205B5800D539D6 /* UFOSighting.h */,
-				4AD587DE18205B5800D539D6 /* UFOSighting.m */,
 				4A31CB781832F47C001B647B /* UFOSighting+Additions.h */,
 				4A31CB791832F47C001B647B /* UFOSighting+Additions.m */,
 				4A266AB31825A82E0079C47F /* MDMUFOSightingImportOperation.h */,
@@ -363,7 +362,7 @@
 				4AD5881218207E7B00D539D6 /* MDMUFOShapesViewController.m in Sources */,
 				4A31CB7A1832F47C001B647B /* UFOSighting+Additions.m in Sources */,
 				4AD5880518205D6100D539D6 /* MDMFetchedResultsTableDataSource.m in Sources */,
-				4AD587E918205B5800D539D6 /* UFOSighting.m in Sources */,
+				4AE85403194671990006F07A /* UFOSighting.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,7 +373,6 @@
 				4A266AB61825A82E0079C47F /* MDMUFOSightingImportOperation.m in Sources */,
 				4AD587F618205C2500D539D6 /* UFO.xcdatamodeld in Sources */,
 				4AD587E018205B5800D539D6 /* MDMPersistenceStack.m in Sources */,
-				4AD587EA18205B5800D539D6 /* UFOSighting.m in Sources */,
 				4A458AEF1822712B007828CE /* MDMUFOSightingCell.m in Sources */,
 				4AD5880418205D6100D539D6 /* MDMDetailViewController.m in Sources */,
 				4AD5880618205D6100D539D6 /* MDMFetchedResultsTableDataSource.m in Sources */,
@@ -497,7 +495,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MDMHPCoreData/MDMHPCoreData-Prefix.pch";
 				INFOPLIST_FILE = "MDMHPCoreData/MDMHPCoreData-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -511,7 +509,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MDMHPCoreData/MDMHPCoreData-Prefix.pch";
 				INFOPLIST_FILE = "MDMHPCoreData/MDMHPCoreData-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

@@ -49,6 +49,12 @@ static const NSUInteger MDM_TAG_IMPORT_ALERTVIEW = 1;
 
 #pragma mark - View Lifecycle
 
+- (void)viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:animated];
+    [self.navigationController setToolbarHidden:NO animated:YES];
+}
+
 - (void)viewDidLoad {
     
     [super viewDidLoad];
@@ -56,6 +62,11 @@ static const NSUInteger MDM_TAG_IMPORT_ALERTVIEW = 1;
                                              selector:@selector(importOperationComplete)
                                                  name:MDM_NOTIFICATION_IMPORT_OPERATION_COMPLETE
                                                object:nil];
+}
+- (void)viewWillDisappear:(BOOL)animated {
+    
+    [super viewWillDisappear:animated];
+    [self.navigationController setToolbarHidden:YES animated:YES];
 }
 
 - (void)dealloc {
@@ -104,6 +115,7 @@ static const NSUInteger MDM_TAG_IMPORT_ALERTVIEW = 1;
     cell.shapeImageView.image = [UFOSighting imageForShape:sighting.shape];
     cell.locationLabel.text = sighting.location;
     cell.sightingDateLabel.text = [UFOSighting stringFromDate:sighting.sighted];
+    cell.readStatusLabel.text = [sighting.read boolValue] ? @"Read":@"Unread";
 }
 
 #pragma mark - Import Operations
@@ -147,6 +159,97 @@ static const NSUInteger MDM_TAG_IMPORT_ALERTVIEW = 1;
         [self createImportOperation];
     } else {
         [self showImportAlertView];
+    }
+}
+extern uint64_t dispatch_benchmark(size_t count, void (^block)(void));
+
+- (IBAction)markAllReadButtonTapped:(id)sender {
+    
+
+    uint64_t t = dispatch_benchmark(1, ^{
+        
+//        [self markAllReadTheOldWay];
+            [self markAllReadTheNewWay];
+    });
+    NSLog(@"Avg. Runtime: %llu ns", t);
+}
+
+- (IBAction)markAllUnreadButtonTapped:(id)sender {
+    
+
+    [self markAllUnreadTheNewWay];
+}
+
+- (void)markAllReadTheOldWay {
+    
+    NSFetchRequest *fetchAllSightings = [NSFetchRequest fetchRequestWithEntityName:[UFOSighting entityName]];
+    NSError *fetchError;
+    NSArray *results = [self.managedObjectContext executeFetchRequest:fetchAllSightings error:&fetchError];
+    
+    if (results == nil) {
+        
+        NSLog(@"Error: %@", [fetchError localizedDescription]);
+    } else {
+        
+        for (UFOSighting *sighting in results) {
+            sighting.read = [NSNumber numberWithBool:YES];
+        }
+        
+        [self saveManagedObjectContext];
+    }
+}
+
+- (void)markAllReadTheNewWay {
+    
+    NSBatchUpdateRequest *batchRequest = [NSBatchUpdateRequest batchUpdateRequestWithEntityName:[UFOSighting entityName]];
+    batchRequest.propertiesToUpdate = @{NSStringFromSelector(@selector(read)): [NSNumber numberWithBool:YES]};
+    batchRequest.resultType = NSUpdatedObjectsCountResultType;
+    [batchRequest setAffectedStores:@[]];
+    batchRequest.predicate = [NSPredicate predicateWithFormat:@""];
+    
+    NSError *requestError;
+    NSBatchUpdateResult *result = (NSBatchUpdateResult *)[self.managedObjectContext executeRequest:batchRequest error:&requestError];
+    
+    if (result == nil) {
+        NSLog(@"Error: %@", [requestError localizedDescription]);
+    } else {
+        
+        [self.tableView reloadData];
+    }
+
+    NSLog(@"Results Type: %lu", result.resultType);
+    NSLog(@"Read Result: %@", result.result);
+    NSLog(@"Type of class: %@", [result.result class]);
+}
+
+- (void)markAllUnreadTheNewWay {
+    
+    NSBatchUpdateRequest *batchRequest = [NSBatchUpdateRequest batchUpdateRequestWithEntityName:[UFOSighting entityName]];
+    batchRequest.propertiesToUpdate = @{NSStringFromSelector(@selector(read)): [NSNumber numberWithBool:NO]};
+    batchRequest.resultType = NSUpdatedObjectsCountResultType;
+    
+    NSError *requestError;
+    NSBatchUpdateResult *result = (NSBatchUpdateResult *)[self.managedObjectContext executeRequest:batchRequest error:&requestError];
+    
+    if (result == nil) {
+        NSLog(@"Error: %@", [requestError localizedDescription]);
+    } else {
+        
+        [self.tableView reloadData];
+    }
+    
+    NSLog(@"Results Type: %lu", result.resultType);
+    NSLog(@"UnRead Result: %@", result.result);
+
+}
+
+- (void)saveManagedObjectContext {
+    
+    NSError *saveError;
+    if ([self.managedObjectContext save:&saveError] == NO) {
+        NSLog(@"ERROR: Could not save managed object context\n%@", [saveError localizedDescription]);
+        NSAssert(NO, @"ASSERT: NSManagedObjectContext Save Error");
+        // TODO: Implement proper error handling for your app/situation
     }
 }
 

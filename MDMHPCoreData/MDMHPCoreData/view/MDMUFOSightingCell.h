@@ -29,5 +29,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *shapeImageView;
 @property (weak, nonatomic) IBOutlet UILabel *locationLabel;
 @property (weak, nonatomic) IBOutlet UILabel *sightingDateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *readStatusLabel;
 
 @end

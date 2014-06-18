@@ -32,6 +32,7 @@ extern NSString *const UFO_KEY_COREDATA_LOCATION;
 extern NSString *const UFO_KEY_COREDATA_SHAPE;
 extern NSString *const UFO_KEY_COREDATA_DURATION;
 extern NSString *const UFO_KEY_COREDATA_DESC;
+extern NSString *const UFO_KEY_COREDATA_READ;
 
 extern NSString *const UFO_KEY_JSON_GUID;
 extern NSString *const UFO_KEY_JSON_SIGHTED;
@@ -40,6 +41,7 @@ extern NSString *const UFO_KEY_JSON_LOCATION;
 extern NSString *const UFO_KEY_JSON_SHAPE;
 extern NSString *const UFO_KEY_JSON_DURATION;
 extern NSString *const UFO_KEY_JSON_DESC;
+extern NSString *const UFO_KEY_JSON_READ;
 
 @interface UFOSighting (Additions)
 

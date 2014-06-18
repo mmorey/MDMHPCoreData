@@ -189,6 +189,7 @@ NSString *const MDM_NOTIFICATION_COREDATA_STACK_INITIALIZED = @"MDM_NOTIFICATION
         // Create managed object context
         self.managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
         [self.managedObjectContext setPersistentStoreCoordinator:persistentStoreCoordinator];
+
         if (self.managedObjectContext == nil) {
             
             // App is useless if a managed object context cannot be created

@@ -33,6 +33,7 @@ NSString *const UFO_KEY_COREDATA_LOCATION = @"location";
 NSString *const UFO_KEY_COREDATA_SHAPE = @"shape";
 NSString *const UFO_KEY_COREDATA_DURATION = @"duration";
 NSString *const UFO_KEY_COREDATA_DESC = @"desc";
+NSString *const UFO_KEY_COREDATA_READ = @"read";
 NSString *const UFO_KEY_JSON_GUID = @"guid";
 NSString *const UFO_KEY_JSON_SIGHTED = @"sighted_at";
 NSString *const UFO_KEY_JSON_REPORTED = @"reported_at";
@@ -40,6 +41,7 @@ NSString *const UFO_KEY_JSON_LOCATION = @"location";
 NSString *const UFO_KEY_JSON_SHAPE = @"shape";
 NSString *const UFO_KEY_JSON_DURATION = @"duration";
 NSString *const UFO_KEY_JSON_DESC = @"description";
+NSString *const UFO_KEY_JSON_READ = @"read";
 
 @implementation UFOSighting (Additions)
 
@@ -55,6 +57,7 @@ NSString *const UFO_KEY_JSON_DESC = @"description";
     sighting.shape = [data objectForKeyOrNil:UFO_KEY_JSON_SHAPE];
     sighting.duration = [data objectForKeyOrNil:UFO_KEY_JSON_DURATION];
     sighting.desc = [data objectForKeyOrNil:UFO_KEY_JSON_DESC];
+    sighting.read = [data objectForKey:UFO_KEY_JSON_READ];
     
     return sighting;
 }

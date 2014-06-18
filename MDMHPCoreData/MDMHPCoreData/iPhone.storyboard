@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="0SZ-ET-KXQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6154.17" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="0SZ-ET-KXQ">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6153.11"/>
     </dependencies>
     <scenes>
         <!--List View Controller - UFO Sightings-->
@@ -9,7 +9,7 @@
             <objects>
                 <tableViewController id="fUh-7Z-4DE" customClass="MDMUFOListViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="REc-Sb-Zv3">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -36,10 +36,18 @@
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unread" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XQc-ck-O4h">
+                                            <rect key="frame" x="231" y="11" width="56" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="locationLabel" destination="8aw-jq-aYr" id="px3-Lq-vNw"/>
+                                    <outlet property="readStatusLabel" destination="XQc-ck-O4h" id="YRf-IR-0Rv"/>
                                     <outlet property="shapeImageView" destination="y9X-K0-hrr" id="I5R-HA-e3i"/>
                                     <outlet property="sightingDateLabel" destination="J9e-s5-wC0" id="ESZ-iZ-THV"/>
                                     <segue destination="37s-S0-b3v" kind="push" id="B0o-ID-EeB"/>
@@ -51,6 +59,19 @@
                             <outlet property="delegate" destination="fUh-7Z-4DE" id="d06-f9-0xz"/>
                         </connections>
                     </tableView>
+                    <toolbarItems>
+                        <barButtonItem title="Mark All Read" id="WID-y3-lMb">
+                            <connections>
+                                <action selector="markAllReadButtonTapped:" destination="fUh-7Z-4DE" id="yL8-sb-iMy"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="O6w-9q-7jt"/>
+                        <barButtonItem title="Mark All Unread" id="aWF-sq-7ht">
+                            <connections>
+                                <action selector="markAllUnreadButtonTapped:" destination="fUh-7Z-4DE" id="tTG-RD-df1"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" title="UFO Sightings" id="5yN-dc-OFB">
                         <barButtonItem key="leftBarButtonItem" title="Import" id="Lgw-RD-LUy">
                             <connections>
@@ -63,6 +84,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
                     <connections>
                         <outlet property="importButton" destination="Lgw-RD-LUy" id="4gc-Dh-Sia"/>
                     </connections>
@@ -111,6 +133,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="UFO Shapes" id="2ID-HT-Xhh"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="McW-5t-2tu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -189,6 +212,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="xjC-Zu-9g9"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="descriptionTextView" destination="srZ-Lr-8Rh" id="gaG-Qh-0me"/>
                         <outlet property="reportedLabel" destination="mz6-gh-8Ib" id="RJZ-8N-wlg"/>
@@ -211,6 +235,9 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="pPf-ty-EJC">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="fUh-7Z-4DE" kind="relationship" relationship="rootViewController" id="VgX-v6-IwG"/>
                     </connections>

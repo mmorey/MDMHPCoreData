@@ -58,4 +58,12 @@
     self.descriptionTextView.text = self.sighting.desc;
 }
 
+- (void)setSighting:(UFOSighting *)sighting {
+    
+    if (_sighting != sighting) {
+        _sighting = sighting;
+        _sighting.read = [NSNumber numberWithBool:YES];
+    }
+}
+
 @end
